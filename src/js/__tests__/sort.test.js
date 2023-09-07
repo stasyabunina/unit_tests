@@ -14,4 +14,4 @@ test('sorting', () => {
   ];
 
   expect(result).toEqual(expected);
-})
+});

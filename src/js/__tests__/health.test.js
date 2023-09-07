@@ -1,13 +1,10 @@
 import showHealth from '../health';
 
-test('returns healthy if health > 50', () => {
-  const object = {
-    name: 'Маг',
-    health: 90,
-  };
-
-  const expected = 'healthy';
+test.each([
+  [{name: 'мечник', health: 10}, 'wounded'],
+  [{name: 'маг', health: 100}, 'healthy'],
+  [{name: 'лучник', health: 80}, 'critical'],
+])('returns health status', (object, expected) => {
   const result = showHealth(object);
-
   expect(result).toBe(expected);
 });
